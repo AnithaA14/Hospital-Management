@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - hospitalmanagement
+name: Build and deploy Python app to Azure Web App - HospitalManagement
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
-          python-version: '3.8'
+          python-version: '3.12'
 
       - name: Create and start virtual environment
         run: |
@@ -65,14 +65,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_DA31B7BDF82D488D9FBFCD587F6218EE }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_A2271ECE7F4F4C26AB558B4037FF152E }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7153DBEF5E094CC292112FF207E2B3E4 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6C63335E32904D0D977D9CDBAACDC5EB }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_9C7560289C8F4348A80FD4F2055563BF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5369A21309464B368A2BDD588A7A17B9 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'hospitalmanagement'
+          app-name: 'HospitalManagement'
           slot-name: 'Production'
           
